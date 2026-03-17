@@ -13,6 +13,7 @@ function PortFolioItemCard({ image, name, description, technologies }: PortFolio
                 src={image}
                 alt={'image_for_' + name}
                 fill
+                sizes="256px"
                 style={{ objectFit: 'contain' }}
               />
             </figure>
