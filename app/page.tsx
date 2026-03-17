@@ -13,9 +13,8 @@ export default function Home() {
   const [language, setLanguage] = useState<'es' | 'en'>('es');
 
   return (
-    <>
-      <NavBar language={language} setLanguage={setLanguage} />
       <div className="container p-4">
+        <NavBar language={language} setLanguage={setLanguage} />
         <div className="columns is-centered">
           <div className="column is-12">
             <MainCard language={language}/>
@@ -74,6 +73,5 @@ export default function Home() {
       </div>
       <Footer language={language} />
     </div>
-    </>
   );
 }
