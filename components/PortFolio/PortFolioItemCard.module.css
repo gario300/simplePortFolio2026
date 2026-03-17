@@ -3,32 +3,19 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   height: 100%;
   cursor: pointer;
-  background-color: var(--bulma-card-background-color, #fff);
-  transform: translateZ(0);
-  will-change: transform, box-shadow;
-  /* Fixes background bleed during animation in Safari/Chrome */
-  backface-visibility: hidden; 
 }
 
 .card:hover {
   box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 6px 6px rgba(0,0,0,0.1);
-  transform: translateY(-4px) translateZ(0);
+  transform: translateY(-4px);
 }
 
 .imageContainer {
   width: 128px;
   height: 128px;
   position: relative;
-  transition: width 0.3s ease, height 0.3s ease;
   border-radius: 12px;
   overflow: hidden;
-  will-change: width, height;
-  transform: translateZ(0);
-}
-
-.card:hover .imageContainer {
-  width: 138px;
-  height: 138px;
 }
 
 .tags {
