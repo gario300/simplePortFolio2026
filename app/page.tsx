@@ -13,65 +13,65 @@ export default function Home() {
   const [language, setLanguage] = useState<'es' | 'en'>('es');
 
   return (
-      <div className="container p-4">
-        <NavBar language={language} setLanguage={setLanguage} />
-        <div className="columns is-centered">
-          <div className="column is-12">
-            <MainCard language={language}/>
-          </div>
+    <div className="container p-4">
+      <NavBar language={language} setLanguage={setLanguage} />
+      <div className="columns is-centered">
+        <div className="column is-12">
+          <MainCard language={language}/>
         </div>
-       
-        <div className="columns">
-          <div className="column">
-            <h3 className="title is-3">
-              {language == 'es' ? 'Portafolio' : 'Portfolio'} 
-            </h3>
-          </div>
-        </div>
-
-        <div className="columns is-multiline">
-          {
-            portfolio.map(item => {
-              return (
-                <div key={item.name} className="column is-6">
-                  <PortFolioItemCard
-                  name={item.name}
-                  image={item.image}
-                  description={item.description[language]}
-                  technologies={item.technologies}
-                />  
-              </div>
-            )
-          })
-        }
       </div>
-
+     
       <div className="columns">
         <div className="column">
           <h3 className="title is-3">
-            Stack
+            {language == 'es' ? 'Portafolio' : 'Portfolio'} 
           </h3>
         </div>
       </div>
 
       <div className="columns is-multiline">
         {
-          technologies.map(item => {
+          portfolio.map(item => {
             return (
-              <div key={item.name} className="column is-4">
-                <TechnologieCard
-                  image={item.image}
-                  name={item.name}
-                  url={item.url}
-                  experience={item.level_experience}
-                  description={item.description[language]}
-                /> 
-              </div>
-            )
-          })
-        }
-      </div>
-      <Footer language={language} />
+              <div key={item.name} className="column is-6">
+                <PortFolioItemCard
+                name={item.name}
+                image={item.image}
+                description={item.description[language]}
+                technologies={item.technologies}
+              />  
+            </div>
+          )
+        })
+      }
     </div>
+
+    <div className="columns">
+      <div className="column">
+        <h3 className="title is-3">
+          Stack
+        </h3>
+      </div>
+    </div>
+
+    <div className="columns is-multiline">
+      {
+        technologies.map(item => {
+          return (
+            <div key={item.name} className="column is-4">
+              <TechnologieCard
+                image={item.image}
+                name={item.name}
+                url={item.url}
+                experience={item.level_experience}
+                description={item.description[language]}
+              /> 
+            </div>
+          )
+        })
+      }
+    </div>
+    <Footer language={language} />
+  </div>
   );
 }

@@ -1,0 +1,40 @@
+.card {
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 100%;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 6px 6px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
+}
+
+.imageContainer {
+  width: 128px;
+  height: 128px;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card:hover .imageContainer {
+  width: 256px;
+  height: 256px;
+}
+
+.tags {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  visibility: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.card:hover .tags {
+  opacity: 1;
+  visibility: visible;
+}

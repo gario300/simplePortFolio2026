@@ -1,23 +1,14 @@
-'use client'
 import Image from "next/image"
 import { PortFolioItemCardProps } from "./PortFolioItemCard.model"
-import { usePortFolioItemCardController } from "./PortFolioItemCard.controller"
-import { cardStyles, imageContainerStyles, tagsStyles } from "./PortFolioItemCard.styles"
+import styles from "./PortFolioItemCard.module.css"
 
 function PortFolioItemCard({ image, name, description, technologies }: PortFolioItemCardProps) {
-  const { isHovered, handleMouseEnter, handleMouseLeave } = usePortFolioItemCardController();
-
   return(
-    <div 
-      className="card"
-      style={cardStyles(isHovered)}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className={`card ${styles.card}`}>
       <div className="card-content">
         <div className="media">
           <div className="media-left">
-            <figure className="image" style={imageContainerStyles(isHovered)}>
+            <figure className={`image ${styles.imageContainer}`}>
               <Image
                 src={image}
                 alt={'image_for_' + name}
@@ -27,13 +18,11 @@ function PortFolioItemCard({ image, name, description, technologies }: PortFolio
             </figure>
           </div>
           <div className="media-content">
-            <p
-              className="title is-4"
-            >
+            <p className="title is-4">
               {name}
             </p>
             <p className="subtitle is-6">{description}</p>
-            <div style={tagsStyles(isHovered)}>
+            <div className={styles.tags}>
               {
                 technologies.map((tech: string, index: number) => {
                   return (
@@ -51,7 +40,6 @@ function PortFolioItemCard({ image, name, description, technologies }: PortFolio
         </div>
       </div>
     </div>
-    
   )
 }
 
