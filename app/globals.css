@@ -1,6 +1,6 @@
 /* Custom styles can go here */
 
-.columns, .column {
+.container, .columns, .column {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
