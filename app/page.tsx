@@ -30,48 +30,48 @@ export default function Home() {
       </div>
 
       <div className="columns is-multiline">
-        {
-          portfolio.map(item => {
-            return (
-              <div key={item.name} className="column is-6">
-                <PortFolioItemCard
-                name={item.name}
-                image={item.image}
-                description={item.description[language]}
-                technologies={item.technologies}
-              />  
-            </div>
-          )
-        })
-      }
-    </div>
-
-    <div className="columns">
-      <div className="column">
-        <h3 className="title is-3">
-          Stack
-        </h3>
+          {
+            portfolio.map(item => {
+              return (
+                <div key={item.name} className="column is-6">
+                  <PortFolioItemCard
+                  name={item.name}
+                  image={item.image}
+                  description={item.description[language]}
+                  technologies={item.technologies}
+                />  
+              </div>
+            )
+          })
+        }
       </div>
-    </div>
 
-    <div className="columns is-multiline">
-      {
-        technologies.map(item => {
-          return (
-            <div key={item.name} className="column is-4">
-              <TechnologieCard
-                image={item.image}
-                name={item.name}
-                url={item.url}
-                experience={item.level_experience}
-                description={item.description[language]}
-              /> 
-            </div>
-          )
-        })
-      }
+      <div className="columns">
+        <div className="column">
+          <h3 className="title is-3">
+            Stack
+          </h3>
+        </div>
+      </div>
+
+      <div className="columns is-multiline">
+        {
+          technologies.map(item => {
+            return (
+              <div key={item.name} className="column is-4">
+                <TechnologieCard
+                  image={item.image}
+                  name={item.name}
+                  url={item.url}
+                  experience={item.level_experience}
+                  description={item.description[language]}
+                /> 
+              </div>
+            )
+          })
+        }
+      </div>
+      <Footer language={language} />
     </div>
-    <Footer language={language} />
-  </div>
   );
 }
