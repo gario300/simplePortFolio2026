@@ -1,64 +1,41 @@
 'use client'
 import { useState } from "react";
-import MainCard from "@/components/MainCard/MainCard.component";
-import TechnologieCard from "@/components/TechnologieCard/TechnologieCard.component";
-import PortFolioItemCard from "@/components/PortFolio/PortFolioItemCard.component";
-import NavBar from "@/components/NavBar/NavBar.component";
-import Footer from "@/components/Footer/Footer.component";
-
-import { technologies } from "@/static/technologies";
-import { portfolio } from "@/static/portfolio";
+import FloatingNav from "@/components/FloatingNav/FloatingNav";
+import Hero from "@/components/Hero/Hero";
+import PortfolioGrid from "@/components/PortfolioGrid/PortfolioGrid";
+import StackGrid from "@/components/StackGrid/StackGrid";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   const [language, setLanguage] = useState<'es' | 'en'>('es');
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <NavBar language={language} setLanguage={setLanguage} />
+    <div className="min-h-screen flex flex-col selection:bg-cta selection:text-white">
+      <FloatingNav language={language} setLanguage={setLanguage} />
       
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-12 flex flex-col gap-16">
-        {/* Main Profile Section */}
-        <section>
-          <MainCard language={language}/>
+      <main className="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col gap-32">
+        <section id="hero">
+          <Hero language={language} />
         </section>
         
-        {/* Portfolio Section */}
-        <section className="flex flex-col gap-8">
-          <h2 className="text-3xl font-heading font-bold text-gray-900 dark:text-white">
-            {language == 'es' ? 'Portafolio' : 'Portfolio'}
-          </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {portfolio.map(item => (
-              <PortFolioItemCard
-                key={item.name}
-                name={item.name}
-                image={item.image}
-                description={item.description[language]}
-                technologies={item.technologies}
-              />  
-            ))}
+        <section id="portfolio" className="scroll-mt-32 flex flex-col gap-12">
+          <div className="flex flex-col items-center text-center">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-slate-900 dark:text-white mb-4">
+              {language === 'es' ? 'Proyectos Destacados' : 'Featured Projects'}
+            </h2>
+            <div className="w-16 h-1 bg-cta rounded-full"></div>
           </div>
+          <PortfolioGrid language={language} />
         </section>
 
-        {/* Stack Section */}
-        <section className="flex flex-col gap-8">
-          <h2 className="text-3xl font-heading font-bold text-gray-900 dark:text-white">
-            Stack
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {technologies.map(item => (
-              <TechnologieCard
-                key={item.name}
-                image={item.image}
-                name={item.name}
-                url={item.url}
-                experience={item.level_experience}
-                description={item.description[language]}
-              /> 
-            ))}
+        <section id="stack" className="scroll-mt-32 flex flex-col gap-12">
+          <div className="flex flex-col items-center text-center">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-slate-900 dark:text-white mb-4">
+              {language === 'es' ? 'Tecnologías' : 'Tech Stack'}
+            </h2>
+            <div className="w-16 h-1 bg-cta rounded-full"></div>
           </div>
+          <StackGrid language={language} />
         </section>
       </main>
 

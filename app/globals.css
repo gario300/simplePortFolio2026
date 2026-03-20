@@ -1,31 +1,50 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #18181B;
-  --color-secondary: #3F3F46;
-  --color-cta: #2563EB;
-  --color-bg: #FAFAFA;
-  --color-text: #09090B;
+  --color-primary: #1E293B; /* Slate 800 */
+  --color-secondary: #334155; /* Slate 700 */
+  --color-cta: #22C55E; /* Run Green */
+  --color-bg: #F8FAFC; /* Slate 50 */
+  --color-text: #0F172A; /* Slate 900 */
+  
+  --color-dark-bg: #0F172A;
+  --color-dark-card: #1E293B;
+  --color-dark-border: #334155;
+  --color-dark-text: #F8FAFC;
+
+  --font-heading: var(--font-archivo);
+  --font-body: var(--font-space-grotesk);
 }
 
 @layer base {
   body {
     background-color: var(--color-bg);
     color: var(--color-text);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
   }
 
   /* Smooth transition for interactive elements */
-  a, button, .card-hover {
-    @apply transition-all duration-300;
+  a, button {
+    @apply transition-colors duration-200 cursor-pointer;
   }
 }
 
-/* Base styles for dark mode preference */
+/* Dark mode by default preference */
 @media (prefers-color-scheme: dark) {
   @layer base {
     body {
-      background-color: #09090B;
-      color: #FAFAFA;
+      background-color: var(--color-dark-bg);
+      color: var(--color-dark-text);
     }
   }
+}
+
+/* Utilities for hover overlays */
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
 }
