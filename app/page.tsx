@@ -13,67 +13,56 @@ export default function Home() {
   const [language, setLanguage] = useState<'es' | 'en'>('es');
 
   return (
-    <>
-        <NavBar language={language} setLanguage={setLanguage} />
-      <div className="container p-4">
-        <div className="columns is-centered">
-          <div className="column is-12">
-            <MainCard language={language}/>
+    <div className="min-h-screen flex flex-col">
+      <NavBar language={language} setLanguage={setLanguage} />
+      
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-12 flex flex-col gap-16">
+        {/* Main Profile Section */}
+        <section>
+          <MainCard language={language}/>
+        </section>
+        
+        {/* Portfolio Section */}
+        <section className="flex flex-col gap-8">
+          <h2 className="text-3xl font-heading font-bold text-gray-900 dark:text-white">
+            {language == 'es' ? 'Portafolio' : 'Portfolio'}
+          </h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {portfolio.map(item => (
+              <PortFolioItemCard
+                key={item.name}
+                name={item.name}
+                image={item.image}
+                description={item.description[language]}
+                technologies={item.technologies}
+              />  
+            ))}
           </div>
-        </div>
-       
-        <div className="columns">
-          <div className="column">
-            <h3 className="title is-3">
-              {language == 'es' ? 'Portafolio' : 'Portfolio'} 
-            </h3>
+        </section>
+
+        {/* Stack Section */}
+        <section className="flex flex-col gap-8">
+          <h2 className="text-3xl font-heading font-bold text-gray-900 dark:text-white">
+            Stack
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {technologies.map(item => (
+              <TechnologieCard
+                key={item.name}
+                image={item.image}
+                name={item.name}
+                url={item.url}
+                experience={item.level_experience}
+                description={item.description[language]}
+              /> 
+            ))}
           </div>
-        </div>
+        </section>
+      </main>
 
-        <div className="columns is-multiline">
-            {
-              portfolio.map(item => {
-                return (
-                  <div key={item.name} className="column is-6">
-                    <PortFolioItemCard
-                    name={item.name}
-                    image={item.image}
-                    description={item.description[language]}
-                    technologies={item.technologies}
-                  />  
-                </div>
-              )
-            })
-          }
-        </div>
-
-        <div className="columns">
-          <div className="column">
-            <h3 className="title is-3">
-              Stack
-            </h3>
-          </div>
-        </div>
-
-        <div className="columns is-multiline">
-          {
-            technologies.map(item => {
-              return (
-                <div key={item.name} className="column is-4">
-                  <TechnologieCard
-                    image={item.image}
-                    name={item.name}
-                    url={item.url}
-                    experience={item.level_experience}
-                    description={item.description[language]}
-                  /> 
-                </div>
-              )
-            })
-          }
-        </div>
-        <Footer language={language} />
-      </div>
-    </>
+      <Footer language={language} />
+    </div>
   );
 }

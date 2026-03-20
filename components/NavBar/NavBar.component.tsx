@@ -7,34 +7,25 @@ export interface NavBarProps {
 
 const NavBar: React.FC<NavBarProps> = ({ language, setLanguage }) => {
   return (
-    <nav 
-      className="navbar is-fixed-top" 
-      role="navigation" 
-      aria-label="main navigation"
-      style={{ borderBottom: '1px solid #eee' }}
-    >
-      <div className="container">
-        <div className="navbar-brand" style={{ width: '100%' }}>
-          <a className="navbar-item title is-5 mb-0" href="/">
-            {language == 'es' ? 'Portafolio' : 'Portfolio'}
-          </a>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 dark:bg-[#18181B]/80 dark:border-gray-800">
+      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+        <a href="/" className="font-heading font-bold text-xl text-primary dark:text-white hover:opacity-80 transition-opacity cursor-pointer">
+          {language === 'es' ? 'Portafolio' : 'Portfolio'}
+        </a>
 
-          <div className="navbar-item ml-auto">
-            <div className="buttons has-addons mb-0">
-              <button 
-                className={`button is-success ${language === 'es' ? 'is-selected' : 'is-light'}`}
-                onClick={() => setLanguage('es')}
-              >
-                ES
-              </button>
-              <button 
-                className={`button is-success ${language === 'en' ? 'is-selected' : 'is-light'}`}
-                onClick={() => setLanguage('en')}
-              >
-                EN
-              </button>
-            </div>
-          </div>
+        <div className="flex bg-gray-100 p-1 rounded-lg dark:bg-gray-800">
+          <button 
+            className={`px-4 py-1 text-sm font-medium rounded-md cursor-pointer transition-colors duration-200 ${language === 'es' ? 'bg-white shadow-sm text-primary dark:bg-gray-700 dark:text-white' : 'text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white'}`}
+            onClick={() => setLanguage('es')}
+          >
+            ES
+          </button>
+          <button 
+            className={`px-4 py-1 text-sm font-medium rounded-md cursor-pointer transition-colors duration-200 ${language === 'en' ? 'bg-white shadow-sm text-primary dark:bg-gray-700 dark:text-white' : 'text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white'}`}
+            onClick={() => setLanguage('en')}
+          >
+            EN
+          </button>
         </div>
       </div>
     </nav>

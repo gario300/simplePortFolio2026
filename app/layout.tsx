@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-  import { Geist, Geist_Mono } from "next/font/google";
-  import "bulma/css/bulma.css";
-  import "./globals.css";
+import { Archivo, Space_Grotesk } from "next/font/google";
+import "./globals.css";
 
-  const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-  });
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+});
 
-  const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-  });
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+});
 
-  export const metadata: Metadata = {
-    title: "Bienvenido",
-    description: "Bienvenido a mi portafolio",
+export const metadata: Metadata = {
+  title: "Bienvenido",
+  description: "Bienvenido a mi portafolio",
 };
 
 export default function RootLayout({
@@ -24,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="has-navbar-fixed-top">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en">
+      <body className={`${archivo.variable} ${spaceGrotesk.variable} font-body antialiased pt-16`}>
         {children}
       </body>
     </html>

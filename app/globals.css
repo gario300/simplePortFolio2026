@@ -1,8 +1,31 @@
-/* Custom styles can go here */
+@import "tailwindcss";
 
-.container, .columns, .column {
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-font-smoothing: subpixel-antialiased;
-  transform: translateZ(0);
+@theme {
+  --color-primary: #18181B;
+  --color-secondary: #3F3F46;
+  --color-cta: #2563EB;
+  --color-bg: #FAFAFA;
+  --color-text: #09090B;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  /* Smooth transition for interactive elements */
+  a, button, .card-hover {
+    @apply transition-all duration-300;
+  }
+}
+
+/* Base styles for dark mode preference */
+@media (prefers-color-scheme: dark) {
+  @layer base {
+    body {
+      background-color: #09090B;
+      color: #FAFAFA;
+    }
+  }
 }
