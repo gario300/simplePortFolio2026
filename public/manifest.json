@@ -1,0 +1,16 @@
+{
+  "name": "Antonio C. Portfolio",
+  "short_name": "AntonioC",
+  "description": "Portafolio de Antonio C., Software Engineer & Full Stack Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}

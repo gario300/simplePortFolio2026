@@ -18,6 +18,7 @@ export default function StackGrid({ language }: { language: 'es' | 'en' }) {
               alt={item.name}
               fill
               className="object-contain"
+              sizes="64px"
             />
           </div>
           <span className="font-heading font-semibold text-slate-800 dark:text-slate-200 group-hover:text-cta transition-colors text-center">

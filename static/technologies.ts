@@ -12,17 +12,17 @@ export interface Technology {
 export const technologies: Technology[] = [
   {
     name: "React",
-    image: "https://res.cloudinary.com/scute/image/upload/v1773734498/React-icon_kgvjrf.png",
+    image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773734498/React-icon_kgvjrf.png",
     level_experience: 97,
     description: {
-      es: "Desarrollo de soluciones tecnologicas complejas a nivel de WPA en SPA",
+      es: "Desarrollo de soluciones tecnológicas complejas a nivel de PWA y SPA",
       en: "Development of complex technological solutions at PWA and SPA level"
     },
     url: "https://es.react.dev/",
   },
   {
     name: "React Native",
-    image: "https://res.cloudinary.com/scute/image/upload/v1773734499/react-native_wcaxcx.png",
+    image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773734499/react-native_wcaxcx.png",
     description: {
       es: "Aplicaciones mobiles hibridas para Android e IOs, desde la planeación hasta el lanzamiento en tiendas",
       en: "Hybrid mobile applications for Android and iOS, from planning to app store launch"
@@ -32,17 +32,17 @@ export const technologies: Technology[] = [
   },
   {
     name: "Vue",
-    image: "https://res.cloudinary.com/scute/image/upload/v1773734499/Vue.js_Logo_2_pbkw9m.png",
+    image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773734499/Vue.js_Logo_2_pbkw9m.png",
     level_experience: 85,
     description: {
-      es: "Desarrollo de soluciones tecnologicas complejas a nivel de WPA en SPA",
+      es: "Desarrollo de soluciones tecnológicas complejas a nivel de PWA y SPA",
       en: "Development of complex technological solutions at PWA and SPA level"
     },
     url: "https://vuejs.org/",
   },
   {
     name: "Adonis",
-    image: "https://res.cloudinary.com/scute/image/upload/v1773734497/13810373_rnxhpt.png",
+    image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773734497/13810373_rnxhpt.png",
     level_experience: 90,
     description: {
       es: "API REST, similar a laravel modelo - controlador haciendo consultas a MySql, crawler, cola de procesos, etc..",
@@ -52,7 +52,7 @@ export const technologies: Technology[] = [
   },
   {
     name: "Express",
-    image: "https://res.cloudinary.com/scute/image/upload/v1773734497/Expressjs_pvidwp.png",
+    image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773734497/Expressjs_pvidwp.png",
     description: {
       es: "A nivel de API REST haciendo consultas a bases de datos, sockets, etc",
       en: "At the REST API level, performing database queries, sockets, etc."
@@ -62,7 +62,7 @@ export const technologies: Technology[] = [
   },
   {
     name: "Laravel",
-    image: "https://res.cloudinary.com/scute/image/upload/v1773734497/images_jdbpzw.jpg",
+    image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773734497/images_jdbpzw.jpg",
     description: {
       es: "A nivel de API REST haciendo consultas a bases de datos, sockets, etc",
       en: "At the REST API level, performing database queries, sockets, etc."
@@ -72,7 +72,7 @@ export const technologies: Technology[] = [
   },
   {
     name: "Firebase",
-    image: "https://res.cloudinary.com/scute/image/upload/v1773734498/touchicon-180_czv5rn.png",
+    image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773734498/touchicon-180_czv5rn.png",
     description: {
       es: "Para una arquitectura Serverless, uso de Auth, Base de datos, herramientas de google cloud, etc..",
       en: "For serverless architectures, using Auth, Database, Google Cloud tools, etc."
@@ -82,7 +82,7 @@ export const technologies: Technology[] = [
   },
   {
     name: "AWS",
-    image: "https://res.cloudinary.com/scute/image/upload/v1773734498/Amazon_Web_Services_Logo_wdkkwo.png",
+    image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773734498/Amazon_Web_Services_Logo_wdkkwo.png",
     level_experience: 85,
     description: {
       es: "A nivel de infraestructura para hacer despliegues. Jenkins, DynamoDB, S3 Entre otros...",
@@ -92,7 +92,7 @@ export const technologies: Technology[] = [
   },
   {
     name: "Azure",
-    image: "https://res.cloudinary.com/scute/image/upload/v1773734498/Microsoft_Azure_davish.png",
+    image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773734498/Microsoft_Azure_davish.png",
     level_experience: 70,
     description: {
       es: "A nivel de infraestructura para despliegues automatizados",
