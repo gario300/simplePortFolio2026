@@ -10,6 +10,15 @@ export interface PortfolioItem {
 
 export const portfolio: PortfolioItem[] = [
   {
+    name: "PETRA ECOSISTEM",
+    image: "https://res.cloudinary.com/scute/image/upload/v1774300007/petra_app_az3i61.png",
+    description: {
+      es: "Un ecosistema de API, DASHBOARD y APP de IOs y ANDROID para la gestión de emergencias y reportes ciudadanos  en tiempo real.",
+      en: "An ecosystem of APIs, a dashboard, and iOS and Android apps for real-time emergency management and citizen reporting."
+    },
+    technologies: ["ADONIS", "firebase", "SOCKET io", "SQL", "Google APIs", "Nextjs", "React Native", "Node"]
+  },
+  {
     name: "Stream App",
     image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773778967/473444735_595757333071719_4162_unjamk.webp",
     description: {
