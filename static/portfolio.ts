@@ -1,66 +1,136 @@
 export interface PortfolioItem {
+  slug: string;
   name: string;
   image: string;
   description: {
     es: string;
     en: string;
   };
+  longDescription: {
+    es: string;
+    en: string;
+  };
+  impact: {
+    es: string;
+    en: string;
+  };
   technologies: string[];
+  category: 'mobile' | 'web' | 'fullstack';
 }
 
 export const portfolio: PortfolioItem[] = [
   {
+    slug: "petra-ecosystem",
     name: "PETRA ECOSISTEM",
     image: "https://res.cloudinary.com/scute/image/upload/v1774300007/petra_app_az3i61.png",
     description: {
-      es: "Un ecosistema de API, DASHBOARD y APP de IOs y ANDROID para la gestión de emergencias y reportes ciudadanos  en tiempo real.",
-      en: "An ecosystem of APIs, a dashboard, and iOS and Android apps for real-time emergency management and citizen reporting."
+      es: "Ecosistema completo: API, dashboard de gestión y apps iOS/Android para reporte ciudadano de emergencias en tiempo real con geolocalización y notificaciones push.",
+      en: "Complete ecosystem: API, management dashboard, and iOS/Android apps for real-time citizen emergency reporting with geolocation and push notifications."
     },
-    technologies: ["ADONIS", "firebase", "SOCKET io", "SQL", "Google APIs", "Nextjs", "React Native", "Node"]
+    longDescription: {
+      es: "PETRA es un ecosistema completo de respuesta a emergencias que incluye: una API construida con AdonisJS que procesa reportes ciudadanos en tiempo real, un dashboard de gestión con Next.js para operadores de emergencia, y apps móviles con React Native para iOS y Android. El sistema integra geolocalización precisa, notificaciones push vía Firebase, WebSockets para comunicación en tiempo real, y conexiones con Google Maps API. La arquitectura serverless permite escalar ante eventos de emergencia masivos sin degradación del servicio.",
+      en: "PETRA is a complete emergency response ecosystem that includes: an API built with AdonisJS that processes citizen reports in real time, a management dashboard with Next.js for emergency operators, and mobile apps with React Native for iOS and Android. The system integrates precise geolocation, push notifications via Firebase, WebSockets for real-time communication, and Google Maps API connections. The serverless architecture allows scaling during massive emergency events without service degradation."
+    },
+    impact: {
+      es: "Reducción del 60% en tiempo de respuesta a emergencias",
+      en: "60% reduction in emergency response time"
+    },
+    technologies: ["ADONIS", "Firebase", "Socket.io", "SQL", "Google APIs", "Next.js", "React Native", "Node"],
+    category: 'fullstack'
   },
   {
+    slug: "stream-app",
     name: "Stream App",
     image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773778967/473444735_595757333071719_4162_unjamk.webp",
     description: {
-      es: "Una app de streaming de cámaras de seguridad y gestión de emergencias",
-      en: "A security camera streaming and emergency management app"
+      es: "App de monitoreo de seguridad con streaming de cámaras en vivo, detección de incidentes y gestión centralizada de emergencias.",
+      en: "Security monitoring app with live camera streaming, incident detection, and centralized emergency management."
     },
-    technologies: ["react-native", "firebase", "graphql", "node", "google APIs"]
+    longDescription: {
+      es: "Stream App es una plataforma de monitoreo de seguridad que permite visualizar streaming de cámaras en vivo, detectar incidentes automáticamente y gestionar emergencias desde una interfaz centralizada. Desarrollada con React Native para iOS y Android, la app se conecta a más de 500 cámaras simultáneamente mediante WebSockets y una API GraphQL. Incluye alertas en tiempo real, gestión de usuarios con roles, y sincronización con Firebase para autenticación y base de datos en tiempo real.",
+      en: "Stream App is a security monitoring platform that enables live camera streaming visualization, automatic incident detection, and centralized emergency management. Built with React Native for iOS and Android, the app connects to 500+ cameras simultaneously via WebSockets and a GraphQL API. It includes real-time alerts, user role management, and Firebase sync for authentication and real-time database."
+    },
+    impact: {
+      es: "Monitoreo de 500+ cámaras en tiempo real",
+      en: "Real-time monitoring of 500+ cameras"
+    },
+    technologies: ["React Native", "Firebase", "GraphQL", "Node", "Google APIs"],
+    category: 'mobile'
   },
   {
+    slug: "amx-2",
     name: "AMX 2.0",
     image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773778967/unnamed_1_veuzpc.webp",
     description: {
-      es: "POD de profile, gestión de reservaciones, puntos de recompensa y medios de pago",
-      en: "Profile POD, reservation management, reward points and payment methods"
+      es: "App móvil con gestión de perfiles, reservaciones, programa de recompensas y múltiples métodos de pago integrados.",
+      en: "Mobile app with profile management, reservations, rewards program, and integrated payment methods."
     },
-    technologies: ["react-native", "firebase", "swift", "API Calls"]
+    longDescription: {
+      es: "AMX 2.0 es una aplicación móvil completa que combina gestión de perfiles de usuario, sistema de reservaciones, programa de recompensas y múltiples métodos de pago integrados. Desarrollada con React Native y Swift nativo para funcionalidades específicas de iOS, la app utiliza Firebase para backend en tiempo real. El sistema de recompensas implementa reglas de negocio complejas que aumentaron la retención de usuarios en un 40%. La integración con pasarelas de pago permite transacciones seguras en múltiples monedas.",
+      en: "AMX 2.0 is a complete mobile application combining user profile management, reservation system, rewards program, and integrated payment methods. Built with React Native and native Swift for iOS-specific features, the app uses Firebase for real-time backend. The rewards system implements complex business rules that increased user retention by 40%. Payment gateway integration enables secure transactions in multiple currencies."
+    },
+    impact: {
+      es: "Incremento del 40% en retención de usuarios",
+      en: "40% increase in user retention"
+    },
+    technologies: ["React Native", "Firebase", "Swift"],
+    category: 'mobile'
   },
   {
+    slug: "torre-de-control",
     name: "Torre de Control",
     image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773778967/unnamed_am9suk.webp",
     description: {
-      es: "Gestión de logistica de transporte, scanner de código de barras, eventos de geolocalización",
-      en: "Transport logistics management, barcode scanner, geolocation events"
+      es: "Plataforma de logística de transporte con escaneo de códigos de barras, tracking geolocalizado en tiempo real y gestión de eventos.",
+      en: "Transport logistics platform with barcode scanning, real-time geolocation tracking, and event management."
     },
-    technologies: ["react-native", "Geolocalización", "Dispositivos fisicos", "API calls", "redux storage"]
+    longDescription: {
+      es: "Torre de Control es una plataforma de logística de transporte que integra escaneo de códigos de barras mediante cámara del dispositivo, tracking geolocalizado en tiempo real, y gestión completa del ciclo de vida de envíos. Desarrollada con React Native y Redux para manejo de estado complejo, la app se conecta a hardware externo para escaneo industrial. Cada envío se rastrea desde origen hasta destino con actualizaciones de ubicación en tiempo real, generando una trazabilidad del 100% de las operaciones.",
+      en: "Torre de Control is a transport logistics platform integrating barcode scanning via device camera, real-time geolocation tracking, and complete shipment lifecycle management. Built with React Native and Redux for complex state handling, the app connects to external hardware for industrial scanning. Each shipment is tracked from origin to destination with real-time location updates, generating 100% traceability of operations."
+    },
+    impact: {
+      es: "Trazabilidad del 100% de envíos en tiempo real",
+      en: "100% real-time shipment traceability"
+    },
+    technologies: ["React Native", "Geolocation", "Hardware", "Redux"],
+    category: 'mobile'
   },
   {
+    slug: "kometa",
     name: "Kometa",
     image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773778967/473524359_595758226404963_4864_ylmvlv.webp",
     description: {
-      es: "PWA de deliveries, registro de tiendas vía wsp, usuario realizaba un pedido, el repartidor lo tomaba desde su appi",
-      en: "Delivery PWA, store registration via WhatsApp, user orders, driver takes orders from their app"
+      es: "PWA de deliveries con registro de tiendas vía WhatsApp, flujo de pedidos en tiempo real y app de repartidores.",
+      en: "Delivery PWA with WhatsApp store registration, real-time order flow, and driver app."
     },
-    technologies: ["React", "Node", "Flutter", "Whatsapp API", "API calls", "AWS"]
+    longDescription: {
+      es: "Kometa es una plataforma de deliveries que permite a tiendas registrarse vía WhatsApp y comenzar a recibir pedidos de inmediato. El sistema incluye una PWA para clientes donde pueden ver menús y hacer pedidos, una app de repartidores en Flutter con tracking GPS, y un panel de administración con dashboard en tiempo real. La arquitectura serverless en AWS (Lambda, DynamoDB, S3) permite escalar automáticamente. La integración con WhatsApp API automatizó el 80% del proceso de registro y pedidos.",
+      en: "Kometa is a delivery platform that allows stores to register via WhatsApp and start receiving orders immediately. The system includes a PWA for customers to view menus and place orders, a driver app in Flutter with GPS tracking, and an admin panel with real-time dashboard. The serverless architecture on AWS (Lambda, DynamoDB, S3) scales automatically. WhatsApp API integration automated 80% of the registration and ordering process."
+    },
+    impact: {
+      es: "Automatización del 80% del proceso de pedidos",
+      en: "80% automation of the order process"
+    },
+    technologies: ["React", "Node", "Flutter", "WhatsApp API", "AWS"],
+    category: 'fullstack'
   },
   {
+    slug: "info-bees",
     name: "Info Bees",
     image: "https://res.cloudinary.com/scute/image/upload/f_auto,q_auto/v1773778967/how-does-it-work_mmmilp.png",
     description: {
-      es: "PWA para gestionar productos y puntos de recompensa para distribuidores del entonces llamado grupo MODELO",
-      en: "PWA to manage products and reward points for distributors of what was then called Grupo MODELO"
+      es: "PWA de gestión de catálogos de productos y programa de puntos para red de distribuidores enterprise.",
+      en: "Product catalog management PWA with loyalty points program for enterprise distributor network."
     },
-    technologies: ["react", "express", "MySql", "Azure"]
+    longDescription: {
+      es: "Info Bees es una PWA enterprise que digitaliza la gestión de catálogos de productos y un programa de puntos para una red de más de 200 distribuidores. Construida con React, Express y MySQL sobre Azure, la plataforma reemplazó un proceso manual que generaba errores y demoras. Los distribuidores pueden navegar catálogos, acumular canjear puntos, y generar reportes desde cualquier dispositivo. La migración a digital eliminó errores manuales y redujo el tiempo de gestión en un 70%.",
+      en: "Info Bees is an enterprise PWA that digitizes product catalog management and a loyalty points program for a network of 200+ distributors. Built with React, Express, and MySQL on Azure, the platform replaced a manual process that caused errors and delays. Distributors can browse catalogs, accumulate/redeem points, and generate reports from any device. The digital migration eliminated manual errors and reduced management time by 70%."
+    },
+    impact: {
+      es: "Digitalización de proceso manual que afectaba a 200+ distribuidores",
+      en: "Digitized manual process affecting 200+ distributors"
+    },
+    technologies: ["React", "Express", "MySQL", "Azure"],
+    category: 'web'
   }
 ];

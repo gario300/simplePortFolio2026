@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1E293B; /* Slate 800 */
-  --color-secondary: #334155; /* Slate 700 */
-  --color-cta: #22C55E; /* Run Green */
-  --color-bg: #F8FAFC; /* Slate 50 */
-  --color-text: #0F172A; /* Slate 900 */
+  --color-primary: #1E293B;
+  --color-secondary: #334155;
+  --color-cta: #22C55E;
+  --color-cta-hover: #16A34A;
+  --color-bg: #F8FAFC;
+  --color-text: #0F172A;
+  --color-accent-blue: #3B82F6;
+  --color-accent-purple: #8B5CF6;
+  --color-accent-orange: #F97316;
   
   --color-dark-bg: #0F172A;
   --color-dark-card: #1E293B;
@@ -23,18 +27,26 @@
     font-family: var(--font-body);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     letter-spacing: -0.02em;
   }
 
-  /* Smooth transition for interactive elements */
   a, button {
     @apply transition-colors duration-200 cursor-pointer;
   }
 }
 
-/* Dark mode by default preference */
 @media (prefers-color-scheme: dark) {
   @layer base {
     body {
@@ -44,7 +56,15 @@
   }
 }
 
-/* Utilities for hover overlays */
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }

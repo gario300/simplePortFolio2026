@@ -14,13 +14,12 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://antoniocelaya.dev"),
-  title: "Antonio C. | Software Engineer & Full Stack Developer",
-  description: "Portafolio profesional de Antonio C., Ingeniero de Software especializado en React, Next.js, Node.js y arquitecturas cloud (AWS/Azure). 5+ años de experiencia desarrollando aplicaciones web y móviles modernas.",
-  keywords: ["Software Engineer", "Full Stack Developer", "React", "Next.js", "Node.js", "AWS", "Azure", "React Native", "Antonio Celaya", "Portafolio", "Desarrollador Web"],
+  title: "Antonio C. | Desarrollo de Apps Móviles, Web y APIs",
+  description: "Full Stack Developer con 5+ años de experiencia. Construyo apps móviles con React Native, aplicaciones web con Next.js y APIs robustas con Node.js. Disponible para proyectos freelance.",
   authors: [{ name: "Antonio C." }],
   openGraph: {
-    title: "Antonio C. | Software Engineer & Full Stack Developer",
-    description: "Desarrollador Full Stack con 5+ años de experiencia en aplicaciones web modernas y arquitecturas cloud.",
+    title: "Antonio C. | Desarrollo de Apps Móviles, Web y APIs",
+    description: "Full Stack Developer. Apps móviles, web y APIs. 5+ años de experiencia construyendo soluciones reales.",
     type: "website",
     locale: "es_MX",
     images: [
@@ -28,19 +27,26 @@ export const metadata: Metadata = {
         url: "/profile_resume.jpeg",
         width: 800,
         height: 600,
-        alt: "Antonio C. - Software Engineer",
+        alt: "Antonio C. - Full Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Antonio C. | Software Engineer",
-    description: "Desarrollador Full Stack especializado en React, Next.js y Cloud Computing.",
+    title: "Antonio C. | Desarrollo de Apps Móviles, Web y APIs",
+    description: "Full Stack Developer. Apps móviles, web y APIs.",
     images: ["/profile_resume.jpeg"],
   },
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: "https://antoniocelaya.dev",
+    languages: {
+      es: "https://antoniocelaya.dev",
+      en: "https://antoniocelaya.dev",
+    },
   },
 };
 
@@ -51,28 +57,42 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Antonio C.",
-    "jobTitle": "Software Engineer & Full Stack Developer",
+    "@type": "ProfessionalService",
+    "name": "Antonio C. - Full Stack Developer",
+    "description": "Freelance development services: mobile apps, web apps, and APIs.",
     "url": "https://antoniocelaya.dev",
     "image": "https://antoniocelaya.dev/profile_resume.jpeg",
     "sameAs": [
       "https://github.com/gario300",
       "https://www.linkedin.com/in/antonio-g-a0885b19a/"
     ],
-    "description": "Software Engineer with 5+ years of experience in modern web applications and cloud architectures."
+    "areaServed": "Worldwide",
+    "serviceType": ["Mobile App Development", "Web Application Development", "API Development"],
+    "provider": {
+      "@type": "Person",
+      "name": "Antonio C.",
+      "jobTitle": "Full Stack Developer"
+    }
   };
 
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className={`${archivo.variable} ${spaceGrotesk.variable} font-body antialiased pt-16`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-cta focus:text-white focus:rounded-lg"
+        >
+          Saltar al contenido
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className={`${archivo.variable} ${spaceGrotesk.variable} font-body antialiased pt-16`}>
         {children}
       </body>
     </html>

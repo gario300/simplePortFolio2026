@@ -1,70 +1,111 @@
 'use client'
 import Image from 'next/image';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { MessageCircle, ArrowRight } from 'lucide-react';
 import resume_image from '../../public/profile_resume.jpeg';
 
 export default function Hero({ language }: { language: 'es' | 'en' }) {
-  const translations = {
-    greeting: {
-      es: "Hola, soy Antonio C.",
-      en: "Hi, I'm Antonio C."
+  const copy = {
+    badge: {
+      es: "Disponible para nuevos proyectos",
+      en: "Available for new projects"
     },
-    role: {
-      es: "Software Engineer / Full Stack Developer",
-      en: "Software Engineer / Full Stack Developer"
+    headline1: {
+      es: "Convierto tu idea en una",
+      en: "I turn your idea into a"
     },
-    description: {
-      es: "Desarrollador Full Stack con 5+ años de experiencia en aplicaciones web modernas usando React, Next.js y Node.js. Especializado en arquitecturas cloud-native y serverless en Amazon Web Services y Microsoft Azure, con experiencia en integración de IA mediante OpenAI y uso de tecnologías open source.",
-      en: "Full Stack Developer with 5+ years of experience in modern web applications using React, Next.js, and Node.js. Specialized in cloud-native and serverless architectures on Amazon Web Services and Microsoft Azure, with experience in AI integration through OpenAI and the use of open source technologies."
-    }
+    headline2: {
+      es: "app que funciona",
+      en: "a working app"
+    },
+    subtitle: {
+      es: "Full Stack Developer con 5+ años de experiencia construyendo apps móviles, web y APIs para empresas que necesitan resultados reales — no solo código.",
+      en: "Full Stack Developer with 5+ years of experience building mobile, web, and API solutions for companies that need real results — not just code."
+    },
+    ctaPrimary: {
+      es: "Hablemos de tu proyecto",
+      en: "Let's talk about your project"
+    },
+    ctaSecondary: {
+      es: "Ver proyectos",
+      en: "See projects"
+    },
+    stat1Label: { es: "Años de experiencia", en: "Years of experience" },
+    stat2Label: { es: "Proyectos entregados", en: "Projects delivered" },
+    stat3Label: { es: "En tecnologías modernas", en: "In modern tech" }
   };
 
-  const socialLinks = [
-    { icon: Github, url: 'https://github.com/gario300', label: 'GitHub' },
-    { icon: Linkedin, url: 'https://www.linkedin.com/in/antonio-g-a0885b19a/', label: 'LinkedIn' },
-    { icon: Mail, url: 'mailto:antoniocelayag@gmail.com', label: 'Email' }
-  ];
+  const whatsappNumber = "5215512345678";
+  const whatsappMessage = encodeURIComponent(
+    language === 'es'
+      ? "Hola Antonio, vi tu portafolio y me gustaría hablar sobre un proyecto."
+      : "Hi Antonio, I saw your portfolio and would like to discuss a project."
+  );
 
   return (
-    <div className="flex flex-col items-center text-center mt-24 sm:mt-32 max-w-3xl mx-auto">
-      <div className="relative w-32 h-32 mb-8 rounded-full overflow-hidden border-4 border-slate-200 dark:border-slate-800 shadow-xl">
+    <div className="flex flex-col items-center text-center mt-20 sm:mt-28 max-w-4xl mx-auto">
+      {/* Availability badge */}
+      <div className="inline-flex items-center gap-2 px-4 py-2 bg-cta/10 border border-cta/20 rounded-full mb-8">
+        <span className="w-2 h-2 bg-cta rounded-full animate-pulse"></span>
+        <span className="text-sm font-semibold text-cta">{copy.badge[language]}</span>
+      </div>
+
+      {/* Photo */}
+      <div className="relative w-28 h-28 mb-8 rounded-full overflow-hidden border-4 border-cta/30 shadow-xl shadow-cta/10">
         <Image
           src={resume_image}
-          alt="Antonio C"
+          alt="Antonio Celaya - Full Stack Developer"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
       </div>
       
-      <h1 className="text-4xl sm:text-6xl font-heading font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-        {translations.greeting[language]}
+      {/* Headline */}
+      <h1 className="text-4xl sm:text-6xl md:text-7xl font-heading font-bold text-slate-900 dark:text-white mb-2 tracking-tight leading-tight">
+        {copy.headline1[language]}
+        <br />
+        <span className="text-cta">{copy.headline2[language]}</span>
       </h1>
       
-      <p className="text-xl font-medium text-cta mb-8">
-        {translations.role[language]}
-      </p>
-      
-      <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-10">
-        {translations.description[language]}
+      {/* Subtitle */}
+      <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-10 max-w-2xl">
+        {copy.subtitle[language]}
       </p>
 
-      <div className="flex gap-4">
-        {socialLinks.map((link) => {
-          const Icon = link.icon;
-          return (
-            <a
-              key={link.label}
-              href={link.url}
-              target="_blank"
-              rel="noreferrer"
-              className="p-3 bg-white dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300 shadow-sm border border-slate-200 dark:border-slate-700 hover:text-cta dark:hover:text-cta hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-pointer"
-              aria-label={link.label}
-            >
-              <Icon size={24} strokeWidth={2} />
-            </a>
-          );
-        })}
+      {/* CTAs */}
+      <div className="flex flex-col sm:flex-row gap-4 mb-16">
+        <a
+          href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-3 px-8 py-4 bg-cta hover:bg-cta-hover text-white font-bold rounded-2xl shadow-lg shadow-cta/25 hover:shadow-xl hover:shadow-cta/30 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          <MessageCircle size={20} />
+          {copy.ctaPrimary[language]}
+          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+        </a>
+        <a
+          href="#portfolio"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-bold rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-cta/50 hover:text-cta transition-all duration-300 hover:-translate-y-0.5"
+        >
+          {copy.ctaSecondary[language]}
+        </a>
+      </div>
+
+      {/* Stats */}
+      <div className="grid grid-cols-3 gap-8 sm:gap-16">
+        <div className="flex flex-col">
+          <span className="text-3xl sm:text-4xl font-heading font-bold text-cta">5+</span>
+          <span className="text-sm text-slate-500 dark:text-slate-400 mt-1">{copy.stat1Label[language]}</span>
+        </div>
+        <div className="flex flex-col">
+          <span className="text-3xl sm:text-4xl font-heading font-bold text-cta">20+</span>
+          <span className="text-sm text-slate-500 dark:text-slate-400 mt-1">{copy.stat2Label[language]}</span>
+        </div>
+        <div className="flex flex-col">
+          <span className="text-3xl sm:text-4xl font-heading font-bold text-cta">9</span>
+          <span className="text-sm text-slate-500 dark:text-slate-400 mt-1">{copy.stat3Label[language]}</span>
+        </div>
       </div>
     </div>
   );
