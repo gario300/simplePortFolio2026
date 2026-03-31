@@ -34,13 +34,16 @@ export default function PortfolioGrid({ language }: { language: 'es' | 'en' }) {
             className="group relative bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-cta/30 transition-all duration-500 flex flex-col h-[420px]"
           >
             {/* Image */}
-            <div className="relative w-full h-full bg-slate-100 dark:bg-slate-900 overflow-hidden">
+            <div className="relative w-full h-full bg-slate-100 dark:bg-slate-900 overflow-hidden aspect-video">
               <Image
                 src={item.image}
                 alt={`Captura de pantalla de ${item.name} - ${item.description.es}`}
                 fill
                 className="object-cover sm:object-contain object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                loading="lazy"
               />
 
               {/* Overlay */}

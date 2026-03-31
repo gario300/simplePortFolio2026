@@ -35,6 +35,11 @@
     html {
       scroll-behavior: auto;
     }
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -44,6 +49,19 @@
 
   a, button {
     @apply transition-colors duration-200 cursor-pointer;
+  }
+
+  /* GPU acceleration for transforms */
+  [class*="transform"],
+  [class*="translate-"],
+  [class*="scale-"],
+  [class*="rotate-"] {
+    will-change: transform;
+  }
+
+  /* Optimize transitions */
+  [class*="transition-"] {
+    will-change: transform, opacity;
   }
 }
 
@@ -61,10 +79,15 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateY(-8px);
+  }
 }
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+  will-change: transform;
 }

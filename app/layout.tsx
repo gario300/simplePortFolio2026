@@ -5,11 +5,15 @@ import "./globals.css";
 const archivo = Archivo({
   variable: "--font-archivo",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -81,6 +85,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://wa.me" />
+        <link rel="preconnect" href="https://github.com" />
+        <link rel="preconnect" href="https://www.linkedin.com" />
+        <link rel="preload" href="/profile_resume.jpeg" as="image" type="image/jpeg" />
       </head>
       <body className={`${archivo.variable} ${spaceGrotesk.variable} font-body antialiased pt-16`}>
         <a
@@ -94,6 +102,23 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                      console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                      console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+              }
+            `
+          }}
+        />
       </body>
     </html>
   );
