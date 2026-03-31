@@ -100,4 +100,14 @@ export const technologies: Technology[] = [
     },
     url: "https://learn.microsoft.com/es-es/azure/?product=popular",
   },
+  {
+    name: "Swift",
+    image: "https://res.cloudinary.com/scute/image/upload/v1774941030/5968371_kh3osp.png",
+    level_experience: 75,
+    description: {
+      es: "Desarrollo de aplicaciones nativas iOS con integración de funcionalidades del sistema y APIs de Apple",
+      en: "Native iOS application development with system functionality integration and Apple APIs"
+    },
+    url: "https://www.swift.org/documentation/",
+  },
 ];

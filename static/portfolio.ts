@@ -20,6 +20,44 @@ export interface PortfolioItem {
 
 export const portfolio: PortfolioItem[] = [
   {
+    slug: "video-seo-platform",
+    name: "Video SEO Platform",
+    image: "https://res.cloudinary.com/scute/image/upload/v1774940854/Captura_de_pantalla_2026-03-31_a_la_s_1.00.59_a.m._mhimvz.png",
+    description: {
+      es: "Plataforma completa de análisis de video/audio con generación automática de títulos, descripciones y tags SEO para YouTube, TikTok e Instagram usando IA.",
+      en: "Complete video/audio analysis platform with automatic SEO title, description, and tag generation for YouTube, TikTok, and Instagram using AI."
+    },
+    longDescription: {
+      es: "Video SEO Platform es un ecosistema completo de backend y frontend para optimización de contenido en video. El backend (AdonisJS v6 + TypeScript) integra Groq Whisper para transcripción de audio y Google Gemini AI para análisis multi-modelo con fallback. Genera títulos, descripciones y tags optimizados para YouTube con scoring automático. El frontend (Next.js 14 App Router + Tailwind CSS) ofrece un dashboard interactivo donde los usuarios analizan videos, gestionan shorts extraídos automáticamente, exportan resultados en PDF, y acceden a historial de análisis. Incluye autenticación por tokens y gestión de perfiles. La API procesa más de 10k solicitudes diarias.",
+      en: "Video SEO Platform is a complete backend and frontend ecosystem for video content optimization. The backend (AdonisJS v6 + TypeScript) integrates Groq Whisper for audio transcription and Google Gemini AI for multi-model analysis with fallback. It generates optimized titles, descriptions, and tags for YouTube with automatic scoring. The frontend (Next.js 14 App Router + Tailwind CSS) offers an interactive dashboard where users analyze videos, manage automatically extracted shorts, export results as PDF, and access analysis history. Includes token-based authentication and profile management. The API processes over 10k daily requests."
+    },
+    impact: {
+      es: "Generación automática de SEO optimizado para contenido de video en 3 plataformas",
+      en: "Automatic optimized SEO generation for video content across 3 platforms"
+    },
+    technologies: ["Next.js", "Adonis", "TypeScript", "AI", "Node", "Tailwind CSS"],
+    category: 'fullstack'
+  },
+  {
+    slug: "petra-landing",
+    name: "Petra Landing Page",
+    image: "https://res.cloudinary.com/scute/image/upload/v1774940854/Captura_de_pantalla_2026-03-31_a_la_s_1.01.13_a.m._t6t3k2.png",
+    description: {
+      es: "Landing page corporativa para PETRA, ecosistema de respuesta a emergencias ciudadanas con diseño moderno y alta conversión.",
+      en: "Corporate landing page for PETRA, citizen emergency response ecosystem with modern design and high conversion."
+    },
+    longDescription: {
+      es: "Landing page corporativa desarrollada con Next.js y Tailwind CSS para presentar el ecosistema PETRA de respuesta a emergencias. El diseño enfocado en conversión incluye secciones de hero impactante, features del producto con animaciones, testimonios, pricing, y CTAs optimizados. La página está completamente optimizada para SEO con meta tags dinámicos, Open Graph, sitemap automático, y robots.txt. Implementa las mejores prácticas de Core Web Vitals con carga progresiva de imágenes y lazy loading. El diseño responsive garantiza una experiencia óptima en desktop, tablet y móvil.",
+      en: "Corporate landing page built with Next.js and Tailwind CSS to present the PETRA emergency response ecosystem. The conversion-focused design includes impactful hero sections, product features with animations, testimonials, pricing, and optimized CTAs. The page is fully SEO optimized with dynamic meta tags, Open Graph, automatic sitemap, and robots.txt. Implements Core Web Vitals best practices with progressive image loading and lazy loading. Responsive design guarantees optimal experience on desktop, tablet, and mobile."
+    },
+    impact: {
+      es: "Página de alta conversión para ecosistema de emergencias con SEO optimizado",
+      en: "High conversion page for emergency ecosystem with optimized SEO"
+    },
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+    category: 'web'
+  },
+  {
     slug: "petra-ecosystem",
     name: "PETRA ECOSISTEM",
     image: "https://res.cloudinary.com/scute/image/upload/v1774300007/petra_app_az3i61.png",
